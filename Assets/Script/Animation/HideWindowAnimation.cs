@@ -15,15 +15,11 @@ public class HideWindowAnimation : MonoBehaviour
     private Vector2 pointFrom; 
     private Vector2 pointTo;
 
-
-
     private bool isHiding; 
 
     void Start()
     {
-        
         animate = false;
-
 
         Rect rect = target.GetComponent<RectTransform>().rect; 
         
@@ -38,12 +34,11 @@ public class HideWindowAnimation : MonoBehaviour
         float newX = horizantalDirection * rect.width ;
         float newY = verticalDirection * rect.height;
 
-        Debug.Log("newX :" + newX);
+        //Debug.Log("newX :" + newX);
 
 
        pointTo = new Vector2(target.localPosition.x + newX, target.localPosition.y + newY);
 
-        Debug.Log("from point " + pointFrom.x + " to point : " + pointTo.x); 
         isHiding = false; 
     }
 
@@ -100,7 +95,7 @@ public class HideWindowAnimation : MonoBehaviour
             if(Math.Abs(currentX - pointTo.x) <= stepX && Math.Abs(currentY - pointTo.y) <= stepY)
             {
                 animate = false;
-                Debug.Log("ended " + gameObject.name); 
+                //Debug.Log("ended " + gameObject.name); 
                 //snap 
                 target.localPosition = new Vector3(pointTo.x, pointTo.y);
             }
@@ -110,7 +105,7 @@ public class HideWindowAnimation : MonoBehaviour
             if (Math.Abs(currentX - pointFrom.x) <= stepX && Math.Abs(currentY - pointFrom.y) <= stepY)
             {
                 animate = false;
-                Debug.Log("ended "  +gameObject.name);
+                //Debug.Log("ended "  +gameObject.name);
                 //snap
                 target.localPosition = new Vector3(pointFrom.x, pointFrom.y);
             }
